@@ -3,7 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESHClouds.Core", "ESHClouds.Core\ESHClouds.Core.csproj", "{322A83AB-6AF9-4142-9B31-580DDE6DF872}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20. Legal", "20. Legal", "{944619E8-3343-4E08-AF52-74AA6502CF26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "30. Chem", "30. Chem", "{10A71A40-2130-43F0-816F-320D81BDD050}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "50. Test", "50. Test", "{886D924B-1433-4EE2-A3B7-A872F395E9DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "40. Utility", "40. Utility", "{B6A06AAE-1BDE-4D9B-B48F-1AD11FA97B4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10. ESHCloud", "10. ESHCloud", "{2D0118A7-6E13-4D99-973D-30F91AAB1177}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESHCloud.Tools", "ESHCloud.Tools\ESHCloud.Tools.csproj", "{FD87FDDF-789F-4955-8273-C478D4E52573}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESHCloud.Test", "ESHCloud.Test\ESHCloud.Test.csproj", "{6043C222-E81F-4AAD-9857-E587B6ABA1F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legal.LawSearch", "Legal.LawSearch\Legal.LawSearch.csproj", "{17E5DA6F-3DF4-430A-AF3C-13CD2D424477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESHCloud.Auth", "ESHCloud.Auth\ESHCloud.Auth.csproj", "{32B89445-347A-4BED-8A64-6D0AF6673F3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +27,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{322A83AB-6AF9-4142-9B31-580DDE6DF872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{322A83AB-6AF9-4142-9B31-580DDE6DF872}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{322A83AB-6AF9-4142-9B31-580DDE6DF872}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{322A83AB-6AF9-4142-9B31-580DDE6DF872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD87FDDF-789F-4955-8273-C478D4E52573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD87FDDF-789F-4955-8273-C478D4E52573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD87FDDF-789F-4955-8273-C478D4E52573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD87FDDF-789F-4955-8273-C478D4E52573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6043C222-E81F-4AAD-9857-E587B6ABA1F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6043C222-E81F-4AAD-9857-E587B6ABA1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6043C222-E81F-4AAD-9857-E587B6ABA1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6043C222-E81F-4AAD-9857-E587B6ABA1F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E5DA6F-3DF4-430A-AF3C-13CD2D424477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E5DA6F-3DF4-430A-AF3C-13CD2D424477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E5DA6F-3DF4-430A-AF3C-13CD2D424477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E5DA6F-3DF4-430A-AF3C-13CD2D424477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32B89445-347A-4BED-8A64-6D0AF6673F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32B89445-347A-4BED-8A64-6D0AF6673F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32B89445-347A-4BED-8A64-6D0AF6673F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32B89445-347A-4BED-8A64-6D0AF6673F3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD87FDDF-789F-4955-8273-C478D4E52573} = {2D0118A7-6E13-4D99-973D-30F91AAB1177}
+		{6043C222-E81F-4AAD-9857-E587B6ABA1F9} = {886D924B-1433-4EE2-A3B7-A872F395E9DB}
+		{17E5DA6F-3DF4-430A-AF3C-13CD2D424477} = {944619E8-3343-4E08-AF52-74AA6502CF26}
+		{32B89445-347A-4BED-8A64-6D0AF6673F3D} = {2D0118A7-6E13-4D99-973D-30F91AAB1177}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {112B5457-6A86-42D2-8B69-CCC223CDB6B3}
