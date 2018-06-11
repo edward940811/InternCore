@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ESHCloud.Tools.Enum;
+using ESHCloud.Tools.Library;
+using ESHCloud.Tools.Model;
+using System;
 
 namespace ESHCloud.Tools
 {
@@ -53,5 +56,11 @@ namespace ESHCloud.Tools
             return Math.Round(mgm3 * (decimal)24.45 / molecularWeight, 2, MidpointRounding.AwayFromZero);
         }
 
+        public Pressure PressureConvert(decimal value, PressureEnum pressureEnum)
+        {
+            IPressureConvert pressureConvert = PressureFactory.CreatePressureConvert(pressureEnum);
+
+            return pressureConvert.Convert(value);
+        }
     }
 }
