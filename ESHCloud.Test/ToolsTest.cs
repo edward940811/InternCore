@@ -22,7 +22,7 @@ namespace ESHCloud.Test
             // Assert
             var assert = Convert.ToDecimal(40.90);
 
-            Assert.AreEqual(act, assert);
+            Assert.AreEqual<decimal>(act, assert);
         }
         [TestMethod]
         public void ESHCloudTools_壓力換算應正確回傳()
