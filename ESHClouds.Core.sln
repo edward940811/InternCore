@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20. Legal", "20. Legal", "{944619E8-3343-4E08-AF52-74AA6502CF26}"
 EndProject
@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "40. Utility", "40. Utility"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10. ESHCloud", "10. ESHCloud", "{2D0118A7-6E13-4D99-973D-30F91AAB1177}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESHCloud.Tools", "ESHCloud.Tools\ESHCloud.Tools.csproj", "{FD87FDDF-789F-4955-8273-C478D4E52573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESHCloud.Tools", "ESHCloud.Tools\ESHCloud.Tools.csproj", "{FD87FDDF-789F-4955-8273-C478D4E52573}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESHCloud.Test", "ESHCloud.Test\ESHCloud.Test.csproj", "{6043C222-E81F-4AAD-9857-E587B6ABA1F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legal.LawSearch", "Legal.LawSearch\Legal.LawSearch.csproj", "{17E5DA6F-3DF4-430A-AF3C-13CD2D424477}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Legal.LawSearch", "Legal.LawSearch\Legal.LawSearch.csproj", "{17E5DA6F-3DF4-430A-AF3C-13CD2D424477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESHCloud.Auth", "ESHCloud.Auth\ESHCloud.Auth.csproj", "{32B89445-347A-4BED-8A64-6D0AF6673F3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESHCloud.Auth", "ESHCloud.Auth\ESHCloud.Auth.csproj", "{32B89445-347A-4BED-8A64-6D0AF6673F3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
