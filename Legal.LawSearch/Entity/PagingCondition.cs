@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LawKing.Entity.Enums;
 
-namespace LawKing.Entity
+
+namespace Legal.LawSearch.Entity
 {
     /// <summary>
     /// 分頁條件

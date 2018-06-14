@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LawKing.Entity
+namespace Legal.LawSearch.Entity
 {
     /// <summary>
     /// 分頁模組

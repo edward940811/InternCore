@@ -1,6 +1,6 @@
-﻿using LawKing.Entity;
-using LawKing.Entity.ViewModels;
-using LawKing.Service;
+﻿using Legal.LawSearch.Entity;
+using Legal.LawSearch.ViewModels;
+using Legal.LawSearch.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;

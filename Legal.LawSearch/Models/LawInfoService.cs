@@ -1,10 +1,9 @@
-﻿using LawKing.DAL;
-using LawKing.Entity;
-using LawKing.Entity.ViewModels;
+﻿using Legal.LawSearch.Entity;
+using Legal.LawSearch.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LawKing.Service
+namespace Legal.LawSearch.Service//LawKing.Service
 {
     public class LawInfoService
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using LawKing.Entity;
-using LawKing.Service;
 using Legal.LawSearch;
+using Legal.LawSearch.Entity;
+using Legal.LawSearch.Service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LegalLawSearch.Test

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using LawKing.Entity.Enums;
+using Legal.LawSearch.Enums;
 
-namespace LawKing.Entity.ViewModels
+namespace Legal.LawSearch.ViewModels
 {
     /// <summary>
     /// 法規VM

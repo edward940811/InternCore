@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LawKing.DAL
+namespace Legal.LawSearch
 {
     public class BaseRepository
     {

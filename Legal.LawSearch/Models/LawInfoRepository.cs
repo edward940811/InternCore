@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dapper;
-using LawKing.Entity;
-using LawKing.Entity.ViewModels;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Legal.LawSearch.Entity;
+using Legal.LawSearch.ViewModels;
 
-namespace LawKing.DAL
+namespace Legal.LawSearch
 {
     public static class StringExtension
     {

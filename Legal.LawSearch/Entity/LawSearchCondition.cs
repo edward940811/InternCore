@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LawKing.Entity
+namespace Legal.LawSearch.Entity
 {
     /// <summary>
     /// 法規(條/附檔)搜尋條件
