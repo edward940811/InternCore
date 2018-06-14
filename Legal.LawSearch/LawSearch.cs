@@ -10,7 +10,7 @@ namespace Legal.LawSearch
 {
     public class LawSearch 
     {
-        public List<LawInfoVM> GetLawInfos([FromUri]LawSearchCondition condition)
+        public List<LawInfoVM> GetLawInfos([FromUri]LawSearchCondition condition, LawInfoService lawInfoService)
         {
             if (condition == null) { return null; }
 
@@ -24,7 +24,7 @@ namespace Legal.LawSearch
             //confirm: 應該改為用一個sql去撈任何的資料
             List<LawInfoVM> lawInfos = null;
             var containCustLaw = string.IsNullOrEmpty(condition.BType) || condition.BType == "自訂";
-            lawInfos = new LawInfoService().GetLawInfos(condition, true);
+            lawInfos = lawInfoService.GetLawInfos(condition, true);
 
             var totalRecords = lawInfos.Count == 0 ? 0 : lawInfos[0].TotalRecords;
 

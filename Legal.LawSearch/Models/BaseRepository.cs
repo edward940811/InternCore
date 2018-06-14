@@ -34,9 +34,9 @@ namespace LawKing.DAL
 
         public BaseRepository()
         {
-            this.LegalConnectionString = ConfigurationManager.ConnectionStrings["LegalConnectionString"].ConnectionString;
-            this.ESHCloudsAuthorizationConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsAuthorizationConnectionString"].ConnectionString;
-            this.LawKingConnectionString = ConfigurationManager.ConnectionStrings["LawKingConnectionString"].ConnectionString;
+            this.LegalConnectionString = ConfigurationManager.ConnectionStrings["LegalDB"].ConnectionString;
+            this.ESHCloudsAuthorizationConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsAuth"].ConnectionString;
+            //this.LawKingConnectionString = ConfigurationManager.ConnectionStrings["LawKingConnectionString"].ConnectionString;
         }
     }
 }

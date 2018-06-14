@@ -1,5 +1,6 @@
 ﻿using System;
 using LawKing.Entity;
+using LawKing.Service;
 using Legal.LawSearch;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -20,13 +21,12 @@ namespace LegalLawSearch.Test
             condition.PageSize = 30;
             condition.AbolishedLaw = false;
             condition.SortOrder = "asc";
+            LawInfoService lawInfoService = new LawInfoService("jimmy", 1637);
             // Act
-            var result = service.GetLawInfos(condition);
+            var result = service.GetLawInfos(condition,lawInfoService);
             var totalRecords = result.Count == 0 ? 0 : result[0].TotalRecords;
-            //var act = service.PpmToMgm3(ppm, molecularWeight);
-            // Assert
-            var assert = 256;
-            Assert.AreEqual(totalRecords, assert);
+            // Assert      
+            Assert.AreNotEqual(0, totalRecords);
         }
     }
 }
