@@ -9,6 +9,7 @@ using Legal.Entity;
 
 namespace Legal.LawSearch
 {
+    //搜尋法條
     public class LawSearch 
     {
         public List<LawInfoVM> GetLawInfos([FromUri]LawSearchCondition condition, LawInfoService lawInfoService)

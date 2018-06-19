@@ -7,7 +7,7 @@ using Legal.LawFile.Service;
 namespace Legal.LawFile.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class LawFileTest
     {
         LawFile service = new LawFile();
         [TestMethod]

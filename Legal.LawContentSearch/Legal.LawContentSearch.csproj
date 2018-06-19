@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Legal.LawSearch\Legal.LawSearch.csproj" />
+    <ProjectReference Include="..\Legal\Legal.csproj" />
   </ItemGroup>
 
 </Project>

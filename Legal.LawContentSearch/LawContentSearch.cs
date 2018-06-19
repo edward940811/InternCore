@@ -9,6 +9,7 @@ using Legal.LawSearch.ViewModels;
 
 namespace Legal.LawContentSearch
 {
+    //搜尋法條
     public class LawContentSearch
     {
         public List<LawContentVM> GetLawContents([FromUri]LawSearchCondition condition, LawContentService service)

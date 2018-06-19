@@ -11,6 +11,7 @@ namespace Legal.LawFile.Service
         private string _companyId;
         private int _userId;
 
+        //搜尋法規建構子
         public LawFileService(string CompanyId, int UserId)
         {
             _companyId = CompanyId;

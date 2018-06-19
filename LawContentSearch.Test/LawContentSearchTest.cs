@@ -1,8 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Legal.LawContentSearch;
-using Legal.LawSearch.Entity;
 using Legal.LawSearch.Service;
+using Legal.Entity;
 
 namespace Legal.LawContentSearch.Test
 {

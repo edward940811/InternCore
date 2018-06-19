@@ -85,6 +85,10 @@
       <Project>{17e5da6f-3df4-430a-af3c-13cd2d424477}</Project>
       <Name>Legal.LawSearch</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Legal\Legal.csproj">
+      <Project>{08beb2e0-3e62-41c6-9a08-8773284ed66e}</Project>
+      <Name>Legal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -28,14 +28,6 @@ namespace Legal.LawFile
             List<LawFileVM> lawFiles = service.GetLawFiles(condition);
             var totalRecords = lawFiles.Count == 0 ? 0 : lawFiles[0].TotalRecords;
 
-            var result = new PagingModel<List<LawFileVM>>()
-            {
-                PageIndex = condition.PageIndex,
-                Data = lawFiles,
-                TotalRecords = totalRecords,
-                TotalPages = (int)Math.Ceiling((float)totalRecords / (float)condition.PageSize)
-            };
-
             return lawFiles;
         }
     }
