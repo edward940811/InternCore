@@ -4,8 +4,8 @@ using Dapper;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Legal.LawSearch.Entity;
 using Legal.LawSearch.ViewModels;
+using Legal.Entity;
 
 namespace Legal.LawSearch
 {

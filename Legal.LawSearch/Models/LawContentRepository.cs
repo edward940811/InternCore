@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using Legal.LawSearch.Entity;
+using Legal.Entity;
 using Legal.LawSearch.ViewModels;
 using System;
 using System.Collections.Generic;

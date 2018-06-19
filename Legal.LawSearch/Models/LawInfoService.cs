@@ -1,4 +1,4 @@
-﻿using Legal.LawSearch.Entity;
+﻿using Legal.Entity;
 using Legal.LawSearch.ViewModels;
 using System.Collections.Generic;
 using System.Linq;

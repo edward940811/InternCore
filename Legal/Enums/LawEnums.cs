@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Legal.LawSearch.Enums 
+namespace Legal.Enums
 {
     /// <summary>
     /// 適用性

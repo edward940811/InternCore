@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Legal.LawSearch.Entity
+namespace Legal.Entity
 {
     /// <summary>
     /// 法規(條/附檔)搜尋條件
@@ -57,7 +57,7 @@ namespace Legal.LawSearch.Entity
         {
             get
             {
-                if (!string.IsNullOrEmpty(_Keyword) &&  _Keyword.Length > 0  )
+                if (!string.IsNullOrEmpty(_Keyword) && _Keyword.Length > 0)
                 {
                     return Encoding.UTF8.GetString(Encoding.Convert(Encoding.GetEncoding("big5"), Encoding.UTF8,
                         Encoding.GetEncoding("big5").GetBytes(_Keyword)));

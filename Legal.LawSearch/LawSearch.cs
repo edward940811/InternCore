@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web.Http;
+using Legal.Entity;
 
 namespace Legal.LawSearch
 {
@@ -28,7 +29,7 @@ namespace Legal.LawSearch
 
             var totalRecords = lawInfos.Count == 0 ? 0 : lawInfos[0].TotalRecords;
 
-            var result = new PagingModel<List<LawInfoVM>>()
+            var result = new Legal.Entity.PagingModel<List<LawInfoVM>>()
             {
                 PageIndex = condition.PageIndex,
                 Data = lawInfos,

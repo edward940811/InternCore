@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Web.Http;
+using Legal.Entity;
 using Legal.LawSearch.Entity;
 using Legal.LawSearch.Service;
 using Legal.LawSearch.ViewModels;
@@ -24,15 +25,6 @@ namespace Legal.LawContentSearch
 
             var lawContents = service.GetLawContents(condition);
             var totalRecords = lawContents.Count == 0 ? 0 : lawContents[0].TotalRecords;
-
-            var result = new PagingModel<List<LawContentVM>>()
-            {
-                PageIndex = condition.PageIndex,
-                Data = lawContents,
-                TotalRecords = totalRecords,
-                TotalPages = (int)Math.Ceiling((float)totalRecords / (float)condition.PageSize)
-            };
-
             return lawContents;
         }
     }

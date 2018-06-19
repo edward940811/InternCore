@@ -1,13 +1,13 @@
 ﻿using System;
 using Legal.LawSearch;
-using Legal.LawSearch.Entity;
+using Legal.Entity;
 using Legal.LawSearch.Service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LegalLawSearch.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class LawSearchTest
     {
         LawSearch service = new LawSearch();
         [TestMethod]

@@ -1,4 +1,4 @@
-﻿using Legal.LawSearch.Enums;
+﻿using Legal.Enums;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
