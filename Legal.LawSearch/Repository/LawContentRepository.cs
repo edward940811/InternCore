@@ -1,15 +1,16 @@
 ﻿using Dapper;
-using Legal.Entity;
-using Legal.LawSearch.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
+using Legal.LawSearch.Conditions;
+using Legal.LawSearch.ViewModels;
+using Legal.Repository;
 
-namespace Legal.LawSearch.Models
+namespace Legal.LawSearch.Repository
 {
 
-    public class LawContentRepository : BaseRepository
+    internal class LawContentRepository : BaseRepository
     {
         public IEnumerable<LawContentVM> GetLawContents(LawSearchCondition condition, string companyId)
         {

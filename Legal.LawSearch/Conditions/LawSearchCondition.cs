@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Legal.Conditions;
 
-namespace Legal.Entity
+namespace Legal.LawSearch.Conditions
 {
-    /// <summary>
-    /// 法規(條/附檔)搜尋條件
-    /// </summary>
     public class LawSearchCondition : PagingCondition
     {
         private string _Keyword = "";
+
         /// <summary>
         /// 法規資料庫
         /// </summary>

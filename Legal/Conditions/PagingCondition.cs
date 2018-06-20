@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Legal.Entity
+namespace Legal.Conditions
 {
     /// <summary>
     /// 分頁條件

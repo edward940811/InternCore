@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Legal.Entity
+namespace Legal.Models
 {
     /// <summary>
     /// 分頁模組

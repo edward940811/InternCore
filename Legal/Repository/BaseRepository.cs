@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Legal.LawSearch
+namespace Legal.Repository
 {
     public class BaseRepository
     {

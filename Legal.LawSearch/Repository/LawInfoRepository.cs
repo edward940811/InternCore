@@ -4,18 +4,18 @@ using Dapper;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Legal.LawSearch.Conditions;
 using Legal.LawSearch.ViewModels;
-using Legal.Entity;
+using Legal.Repository;
 
-namespace Legal.LawSearch
+namespace Legal.LawSearch.Repository
 {
-    public static class StringExtension
+    internal static class StringExtension
     {
         public static string GenerateSqlContainsKeyword(this string value)
         {
             var keywords = Regex.Replace(value.Trim(), " +", " ").Split(' ');
-            // HACK: 需要解決多個關鍵字如何重組
-            return string.Format(@"""{0}*""", string.Join(@""" AND """, keywords));
+            return $@"""{string.Join(@""" AND """, keywords)}*""";
         }
         public static string GenerateOrder(this string value, Type obj, string defeultOrder, string sortOrder)
         {
@@ -37,7 +37,7 @@ namespace Legal.LawSearch
             return defeultOrder + " ";
         }
     }
-    public class LawInfoRepository : BaseRepository
+    internal class LawInfoRepository : BaseRepository
     {
 
         public IEnumerable<LawInfoVM> GetLawInfos(LawSearchCondition condition, string companyId, int userId, bool containCustLaw)

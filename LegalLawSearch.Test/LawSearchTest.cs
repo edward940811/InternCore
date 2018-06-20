@@ -1,7 +1,7 @@
 ﻿using System;
 using Legal.LawSearch;
-using Legal.Entity;
-using Legal.LawSearch.Service;
+using Legal.LawSearch.Conditions;
+using Legal.LawSearch.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LegalLawSearch.Test
@@ -9,7 +9,8 @@ namespace LegalLawSearch.Test
     [TestClass]
     public class LawSearchTest
     {
-        LawSearch service = new LawSearch();
+        LawSearch service = new LawSearch("jimmy", 1637);
+
         [TestMethod]
         public void LegalLawSearch_法規搜尋應正確回傳()
         {
@@ -21,9 +22,10 @@ namespace LegalLawSearch.Test
             condition.PageSize = 30;
             condition.AbolishedLaw = false;
             condition.SortOrder = "asc";
-            LawInfoService lawInfoService = new LawInfoService("jimmy", 1637);
+            
             // Act
-            var result = service.GetLawInfos(condition,lawInfoService);
+            var result = service.GetLawInfos(condition);
+
             var totalRecords = result.Count == 0 ? 0 : result[0].TotalRecords;
             // Assert      
             Assert.AreNotEqual(0, totalRecords);

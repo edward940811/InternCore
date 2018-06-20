@@ -1,31 +1,13 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+
 namespace ESHCloud.Test
 {
     [TestClass]
     public class DbConnectionTest
     {
-        //
-        //        name="ESHCloudsDB" c
-        //            name = "ESHCloudsAuth"
-        //        name="LegalDB" conne
-        //            name = "RiskDB" connec
-        [TestMethod]
-        public void TestESHCloudsDBDbConnection()
-        {
-             
-            using (SqlConnection conn 
-                = new SqlConnection(
-                    ConfigurationManager
-                    .ConnectionStrings["ESHCloudsDB"].ConnectionString))
-            {
-                conn.Open();
-                Assert.AreEqual(true,(conn.State & ConnectionState.Open) != 0);
-                conn.Close();
-            }
-        }
         [TestMethod]
         public void TestESHCloudsAuthDbConnection()
         {
@@ -33,6 +15,20 @@ namespace ESHCloud.Test
                 = new SqlConnection(
                     ConfigurationManager
                         .ConnectionStrings["ESHCloudsAuth"].ConnectionString))
+            {
+                conn.Open();
+                Assert.AreEqual(true, (conn.State & ConnectionState.Open) != 0);
+                conn.Close();
+            }
+        }
+
+        [TestMethod]
+        public void TestESHCloudsDBDbConnection()
+        {
+            using (SqlConnection conn
+                = new SqlConnection(
+                    ConfigurationManager
+                    .ConnectionStrings["ESHCloudsDB"].ConnectionString))
             {
                 conn.Open();
                 Assert.AreEqual(true, (conn.State & ConnectionState.Open) != 0);
@@ -52,6 +48,7 @@ namespace ESHCloud.Test
                 conn.Close();
             }
         }
+
         [TestMethod]
         public void TestRiskDBDbConnection()
         {

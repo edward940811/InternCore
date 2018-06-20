@@ -1,15 +1,15 @@
-﻿using Legal.Entity;
-using Legal.LawSearch.Models;
-using Legal.LawSearch.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Legal.LawSearch.Conditions;
+using Legal.LawSearch.Repository;
+using Legal.LawSearch.ViewModels;
 
 
-namespace Legal.LawSearch.Service
+namespace Legal.LawSearch.Services
 {
-    public class LawContentService
+    internal class LawContentService
     {
         private string _companyId;
         private int _userId;

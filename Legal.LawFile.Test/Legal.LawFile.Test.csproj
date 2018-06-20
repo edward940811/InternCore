@@ -100,10 +100,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Legal.LawFile\Legal.LawFile.csproj">
-      <Project>{d269bd69-63fc-4077-a59e-19ce3827ba92}</Project>
-      <Name>Legal.LawFile</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Legal\Legal.csproj">
       <Project>{08beb2e0-3e62-41c6-9a08-8773284ed66e}</Project>
       <Name>Legal</Name>
