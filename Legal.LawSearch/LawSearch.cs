@@ -18,6 +18,11 @@ namespace Legal.LawSearch
 
         private LawContentService lawContentService { get; set; }
 
+        /// <summary>
+        /// Initialize Law Search Service
+        /// </summary>
+        /// <param name="companyId">公司代碼</param>
+        /// <param name="userId">使用者ID</param>
         public LawSearch(string companyId, int userId)
         {
             lawInfoService = new LawInfoService(companyId, userId);
@@ -26,9 +31,9 @@ namespace Legal.LawSearch
         }
 
         /// <summary>
-        /// 
+        /// 搜尋法規
         /// </summary>
-        /// <param name="condition"></param>
+        /// <param name="condition">查詢條件</param>
         /// <returns></returns>
         public List<LawInfoVM> GetLawInfos(LawSearchCondition condition)
         {
@@ -62,7 +67,7 @@ namespace Legal.LawSearch
         /// <summary>
         /// 搜尋附檔
         /// </summary>
-        /// <param name="condition"></param>
+        /// <param name="condition">查詢條件</param>
         /// <returns></returns>       
         public List<LawFileVM> GetLawFiles(LawSearchCondition condition)
         {
@@ -83,9 +88,9 @@ namespace Legal.LawSearch
         }
 
         /// <summary>
-        /// 
+        /// 搜尋法條
         /// </summary>
-        /// <param name="condition"></param>
+        /// <param name="condition">查詢條件</param>
         /// <returns></returns>
         public List<LawContentVM> GetLawContents(LawSearchCondition condition)
         {
