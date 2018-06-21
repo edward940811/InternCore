@@ -50,7 +50,6 @@ namespace Legal.LawSearch
             List<LawInfoVM> lawInfos = null;
             var containCustLaw = string.IsNullOrEmpty(condition.BType) || condition.BType == "自訂";
             lawInfos = lawInfoService.GetLawInfos(condition, true);
-
             var totalRecords = lawInfos.Count == 0 ? 0 : lawInfos[0].TotalRecords;       
 
             return lawInfos;
