@@ -4,9 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Yeahhhhh baby</Description>
-    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+    <AssemblyVersion>1.0.8.0</AssemblyVersion>
     <FileVersion>1.0.7.0</FileVersion>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
   </PropertyGroup>
 
   <ItemGroup>
