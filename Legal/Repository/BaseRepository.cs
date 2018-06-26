@@ -34,8 +34,14 @@ namespace Legal.Repository
 
         public BaseRepository()
         {
+#if NETSTANDARD2_0
+            this.LegalConnectionString = DotNetCoreConnectionStringsConfig.LegalDatabase;
+            this.ESHCloudsAuthorizationConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsAuth;
+#else
             this.LegalConnectionString = ConfigurationManager.ConnectionStrings["LegalDB"].ConnectionString;
-            this.ESHCloudsAuthorizationConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsAuth"].ConnectionString;
+            this.ESHCloudsAuthorizationConnectionString =
+ ConfigurationManager.ConnectionStrings["ESHCloudsAuth"].ConnectionString;
+#endif
             //this.LawKingConnectionString = ConfigurationManager.ConnectionStrings["LawKingConnectionString"].ConnectionString;
         }
     }
