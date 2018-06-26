@@ -95,7 +95,9 @@ namespace Legal.LawSearch.Conditions
         /// 是否顯示廢止法規
         /// </summary>
         public bool AbolishedLaw { get; set; }
-
+        /// <summary>
+        /// 搜尋是否包含自訂法規
+        /// </summary>
         public bool IncludeCusLaw { get; set; }
     }
 }
