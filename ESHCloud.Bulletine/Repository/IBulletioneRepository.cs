@@ -5,7 +5,7 @@ namespace ESHCloud.Bulletine.Repository
 {
     public interface IBulletioneRepository
     {
-        void CreateEvent();
+        void CreateEvent(BulletineViewModel model);
         void DeleteEvent(int id);
         IEnumerable<BulletineViewModel> GetAllEvent();
         BulletineViewModel GetEvent(int id);

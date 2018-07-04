@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 
 namespace ESHCloud.Base.Repository
@@ -32,20 +33,25 @@ namespace ESHCloud.Base.Repository
 
         public string ESHCloudsCoreConnectionString
         {
-            get { return _ESHCloudsCoreConnectionString; }
             set { _ESHCloudsCoreConnectionString = value; }
+            get { return _ESHCloudsCoreConnectionString; }
         }
 
         public BaseRepository()
         {
-#if NETSTANDARD2_0
-            this.LegalConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsCore;
-            this.ESHCloudsAuthorizationConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsAuth;
-#else
-            this.LegalConnectionString = ConfigurationManager.ConnectionStrings["esh_core"].ConnectionString;
-            this.ESHCloudsAuthorizationConnectionString =
- ConfigurationManager.ConnectionStrings["ESHCloudsAuth"].ConnectionString;
-#endif
+            this.ESHCloudsCoreConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsCore"].ConnectionString;
+            this.LegalConnectionString = ConfigurationManager.ConnectionStrings["LegalDB"].ConnectionString;
+            this.ESHCloudsAuthorizationConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsAuth"].ConnectionString;
+            this._ESHCloudsCoreConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsCore"].ConnectionString;
+//#if NETSTANDARD2_0
+//            this.LegalConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsCore;
+//            this.ESHCloudsAuthorizationConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsAuth;
+//            this._ESHCloudsCoreConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsCore;
+//#else
+//            this.LegalConnectionString = ConfigurationManager.ConnectionStrings["esh_core"].ConnectionString;
+//            this.ESHCloudsAuthorizationConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsAuth"].ConnectionString;
+//            this._ESHCloudsCoreConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsCore"].ConnectionString;
+//#endif
         }
     }
 }

@@ -3,14 +3,18 @@ using ESHCloud.Bulletine.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 namespace ESHCloud.Bulletine.Services
 {
     public class BulletineService : IBulletineService
     {
-        public void CreateEvent()
+        public BulletineService()
         {
-            new BulletioneRepository().CreateEvent();
+
+        }
+        public void CreateEvent(BulletineViewModel model)
+        {
+            new BulletioneRepository().CreateEvent(model);
         }
 
         public void DeleteEvent(int id)

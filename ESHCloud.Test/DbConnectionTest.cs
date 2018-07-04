@@ -62,5 +62,18 @@ namespace ESHCloud.Test
                 conn.Close();
             }
         }
+        [TestMethod]
+        public void TestESHCouldsCoreDbConnection()
+        {
+            using (SqlConnection conn
+                = new SqlConnection(
+                    ConfigurationManager
+                        .ConnectionStrings["ESHCloudsCore"].ConnectionString))
+            {
+                conn.Open();
+                Assert.AreEqual(true, (conn.State & ConnectionState.Open) != 0);
+                conn.Close();
+            }
+        }
     }
 }
