@@ -23,7 +23,7 @@ namespace Legal.LawSearch
         /// </summary>
         /// <param name="companyId">公司代碼</param>
         /// <param name="userId">使用者ID</param>
-        public LawSearch(string companyId, int userId)
+        public LawSearch(string companyId=null, int userId=0)
         {
             lawInfoService = new LawInfoService(companyId, userId);
             lawFileService = new LawFileService(companyId, userId);
