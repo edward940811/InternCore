@@ -63,7 +63,8 @@ namespace ESHCloud.Bulletine.Repository
                     Module = model.Module,
                     Filename = model.FileName,
                     Notify = false,
-                    Date = model.Date
+                    Date = model.Date,
+                    Status = 1
                 });
             }
         }
@@ -74,20 +75,24 @@ namespace ESHCloud.Bulletine.Repository
             {
                 var sql = $@"UPDATE [dbo].[Bulletine]
                             SET 
-                                [Name] = @Name
+                                [CompanyId] = @CompanyId
+                                ,[Name] = @Name
                                 ,[Description] = @Description
                                 ,[FileName] = @FileName
                                 ,[setTop] = @Top
                                 ,[Type] = @Type
                                 ,[Date] = @Date
+                                ,[Module] = @Module
                             WHERE Id = @Id";
                 con.Execute(sql, new
                 {
                     Id = model.Id,
+                    CompanyId = model.CompanyId,
                     Name = model.Name,
                     Description = model.Description,
                     Type = model.Type,
                     Top = model.Top,
+                    Module = model.Module,
                     Filename = model.FileName,
                     Date = model.Date
                 });
@@ -98,11 +103,14 @@ namespace ESHCloud.Bulletine.Repository
         {
             using (var con = new SqlConnection(this.ESHCloudsCoreConnectionString))
             {
-                var sql = $@"DELETE FROM [dbo].[Bulletine]
+                var sql = $@"UPDATE [dbo].[Bulletine]
+                            SET
+                                [Status] = @Status
                             WHERE Id = @Id";
                 con.Execute(sql, new
                 {
-                    Id = id
+                    Id = id,
+                    Status = 0 
                 });
             }
         }

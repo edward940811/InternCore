@@ -51,8 +51,9 @@ namespace ESHCloud.Test
             //Arrange
             BulletineViewModel model = new BulletineViewModel
             {
+                Id = 3,
                 CompanyId = "jaja",
-                Description = "jimmy stay",
+                Description = "sfffay",
                 Top = true,
                 Type = "type1",
                 Date = DateTime.Now,
@@ -69,7 +70,7 @@ namespace ESHCloud.Test
         public void Delete()
         {
             //Arrange
-            int id = 2;
+            int id = 3;
             //Act
             string result = _service.Delete(id);
             //Assert

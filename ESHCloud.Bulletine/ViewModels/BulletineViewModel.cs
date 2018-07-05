@@ -6,7 +6,7 @@ namespace ESHCloud.Bulletine.ViewModels
 {
     public class BulletineViewModel
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string CompanyId { get; set; }
         public string Module { get; set; }
         public string FileName { get; set; }
@@ -17,5 +17,6 @@ namespace ESHCloud.Bulletine.ViewModels
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public Boolean Notify { get; set; }
+        public int Status { get; set; } 
     }
 }
