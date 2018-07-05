@@ -33,7 +33,7 @@ namespace ESHCloud.Test
             //Arrange
             BulletineViewModel model = new BulletineViewModel
             {
-                CompanyId = "jimmy",
+                CompanyId = "jimmy3",
                 Description = "jimmy gone",
                 Top = true,
                 Type = "type1",
