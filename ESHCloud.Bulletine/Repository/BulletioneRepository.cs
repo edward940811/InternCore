@@ -59,9 +59,9 @@ namespace ESHCloud.Bulletine.Repository
                     Name = model.Name,
                     Description = model.Description,
                     Type = model.Type,
-                    Top = model.Top,
+                    setTop = model.setTop,
                     Module = model.Module,
-                    Filename = model.FileName,
+                    FileName = model.FileName,
                     Notify = false,
                     Date = model.Date,
                     Status = 1
@@ -83,6 +83,7 @@ namespace ESHCloud.Bulletine.Repository
                                 ,[Type] = @Type
                                 ,[Date] = @Date
                                 ,[Module] = @Module
+                                ,[Notify] = @Notify
                             WHERE Id = @Id";
                 con.Execute(sql, new
                 {
@@ -91,10 +92,11 @@ namespace ESHCloud.Bulletine.Repository
                     Name = model.Name,
                     Description = model.Description,
                     Type = model.Type,
-                    Top = model.Top,
+                    setTop = model.setTop,
                     Module = model.Module,
-                    Filename = model.FileName,
-                    Date = model.Date
+                    FileName = model.FileName,
+                    Date = model.Date,
+                    Notify = model.Notify
                 });
             }
         }

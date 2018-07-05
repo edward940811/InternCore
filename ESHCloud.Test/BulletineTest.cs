@@ -35,7 +35,7 @@ namespace ESHCloud.Test
             {
                 CompanyId = "jimmy3",
                 Description = "jimmy gone",
-                Top = true,
+                setTop = true,
                 Type = "type1",
                 Date = DateTime.Now,
                 Module = "Chem",
@@ -54,7 +54,7 @@ namespace ESHCloud.Test
                 Id = 3,
                 CompanyId = "jaja",
                 Description = "sfffay",
-                Top = true,
+                setTop = true,
                 Type = "type1",
                 Date = DateTime.Now,
                 Module = "Chem",
