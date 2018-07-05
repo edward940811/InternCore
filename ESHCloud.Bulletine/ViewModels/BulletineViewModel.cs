@@ -12,7 +12,7 @@ namespace ESHCloud.Bulletine.ViewModels
         public string FileName { get; set; }
         public string Name { get; set; }
         public string UserId { get; set; }
-        public Boolean Top { get; set; }
+        public Boolean setTop { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
