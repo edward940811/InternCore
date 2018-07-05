@@ -39,15 +39,9 @@ namespace ESHCloud.Base.Repository
 
         public BaseRepository()
         {
-#if NETSTANDARD2_0
             this.LegalConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsCore;
             this.ESHCloudsAuthorizationConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsAuth;
             this._ESHCloudsCoreConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsCore;
-#else
-            this.LegalConnectionString = ConfigurationManager.ConnectionStrings["esh_core"].ConnectionString;
-            this.ESHCloudsAuthorizationConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsAuth"].ConnectionString;
-            this._ESHCloudsCoreConnectionString = ConfigurationManager.ConnectionStrings["ESHCloudsCore"].ConnectionString;
-#endif
         }
     }
 }
