@@ -50,7 +50,7 @@ namespace ESHCloud.Bulletine.Repository
                                 @Name,
                                 @Description,
                                 @FileName,
-                                @Top,
+                                @setTop,
                                 @Type,
                                 @Date,
                                 @Module)";
@@ -79,7 +79,7 @@ namespace ESHCloud.Bulletine.Repository
                                 ,[Name] = @Name
                                 ,[Description] = @Description
                                 ,[FileName] = @FileName
-                                ,[setTop] = @Top
+                                ,[setTop] = @setTop
                                 ,[Type] = @Type
                                 ,[Date] = @Date
                                 ,[Module] = @Module
