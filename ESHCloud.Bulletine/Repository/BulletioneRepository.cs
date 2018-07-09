@@ -15,7 +15,7 @@ namespace ESHCloud.Bulletine.Repository
     {
         public IEnumerable<BulletineViewModel> GetAllEvent()
         {
-            using (var con = new SqlConnection(this.ESHCloudsCoreConnectionString))
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
                 List<BulletineViewModel> Bulletines = new List<BulletineViewModel>();
                 var sql = $@"Select * From [esh_core].[dbo].[Bulletine]
@@ -28,7 +28,7 @@ namespace ESHCloud.Bulletine.Repository
         }
         public BulletineViewModel GetEvent(int id)
         {
-            using (var con = new SqlConnection(this.ESHCloudsCoreConnectionString))
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
             }
             return new BulletineViewModel();
@@ -36,7 +36,7 @@ namespace ESHCloud.Bulletine.Repository
 
         public void CreateEvent(BulletineViewModel model)
         {
-            using (var con = new SqlConnection(this.ESHCloudsCoreConnectionString))
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
                 var sql = $@"INSERT INTO [dbo].[Bulletine]           
                                 ([CompanyId]
@@ -73,7 +73,7 @@ namespace ESHCloud.Bulletine.Repository
 
         public void UpdateEvent(BulletineViewModel model)
         {
-            using (var con = new SqlConnection(this.ESHCloudsCoreConnectionString))
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
                 var sql = $@"UPDATE [dbo].[Bulletine]
                             SET 
@@ -105,7 +105,7 @@ namespace ESHCloud.Bulletine.Repository
 
         public void DeleteEvent(int id)
         {
-            using (var con = new SqlConnection(this.ESHCloudsCoreConnectionString))
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
                 var sql = $@"UPDATE [dbo].[Bulletine]
                             SET

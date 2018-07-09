@@ -1,11 +1,13 @@
-﻿using System;
-using Legal.LawSearch.Conditions;
+﻿using Legal.LawSearch.Conditions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Legal.Test.LawSearch
 {
     [TestClass]
-    public class LawSearchTest
+    public class LawSearchTest : Startup
     {
         private Legal.LawSearch.LawSearch service { get; set; }
 
@@ -74,6 +76,5 @@ namespace Legal.Test.LawSearch
             Assert.AreNotEqual(0, totalRecords);
 
         }
-
     }
 }
