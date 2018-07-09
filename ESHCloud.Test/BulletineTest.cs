@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace ESHCloud.Test
         [TestMethod]
         public void Create()
         {
-            //Arrange
+            //Arrange         
             BulletineViewModel model = new BulletineViewModel
             {
                 CompanyId = "jimmy3",
@@ -40,6 +41,13 @@ namespace ESHCloud.Test
                 Date = DateTime.Now,
                 Module = "Chem",
             };
+            //檔案上傳中心待定
+            byte[] bytes;
+            FileStream file = new FileStream("C:/Users/wish/Documents/script.sql", FileMode.Open, FileAccess.Read);
+            bytes = new byte[file.Length];
+            file.Read(bytes, 0, (int)file.Length);
+            model.Files.Add(bytes);
+            file.Close();
             //Act
             string result = _service.Create(model);
             //Assert

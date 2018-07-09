@@ -46,7 +46,8 @@ namespace ESHCloud.Bulletine.Repository
                                 ,[setTop]
                                 ,[Type]
                                 ,[Date]
-                                ,[Module])
+                                ,[Module]
+                                ,[File_Data])
                             VALUES
                                 (@CompanyId,
                                 @Name,
@@ -66,6 +67,7 @@ namespace ESHCloud.Bulletine.Repository
                     FileName = model.FileName,
                     Notify = false,
                     Date = model.Date,
+                    Files = model.Files,
                     Status = 1
                 });
             }
