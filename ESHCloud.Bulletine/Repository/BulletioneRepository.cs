@@ -18,7 +18,9 @@ namespace ESHCloud.Bulletine.Repository
             using (var con = new SqlConnection(this.ESHCloudsCoreConnectionString))
             {
                 List<BulletineViewModel> Bulletines = new List<BulletineViewModel>();
-                var sql = "Select * From [esh_core].[dbo].[Bulletine]";
+                var sql = $@"Select * From [esh_core].[dbo].[Bulletine]
+                                WHERE Status = 1
+                                ORDER BY setTop DESC, Id ASC;";
                 var dynamicParams = new DynamicParameters();
                 Bulletines = con.Query<BulletineViewModel>(sql, dynamicParams).ToList();
                 return Bulletines;
