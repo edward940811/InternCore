@@ -17,7 +17,6 @@ namespace ESHCloud.Bulletine.ViewModels
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public Boolean Notify { get; set; }
-        public int Status { get; set; }
-        public List<byte[]> Files { get; set;}
+        public int Status { get; set; } 
     }
 }
