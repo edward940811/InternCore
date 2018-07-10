@@ -127,7 +127,7 @@ namespace Legal.LawSearch.Repository
             dynamicParams.Add("@PageSize", condition.PageSize);
             dynamicParams.Add("@Abolished", condition.AbolishedLaw ? null : "3");
 
-            using (var con = new SqlConnection(this.LegalConnectionString))
+            using (var con = new SqlConnection(this.LegalConn))
             {
                 return con.Query<LawInfoVM>(sql, dynamicParams);
             }

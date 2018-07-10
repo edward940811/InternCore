@@ -123,7 +123,7 @@ namespace Legal.LawSearch.Repository
                 dynamicParams.Add("@PageSize", condition.PageSize);
             }
 
-            using (var con = new SqlConnection(this.LegalConnectionString))
+            using (var con = new SqlConnection(this.LegalConn))
             {
                 return con.Query<LawFileVM>(sql, dynamicParams);
             }

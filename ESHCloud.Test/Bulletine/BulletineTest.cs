@@ -1,3 +1,4 @@
+<<<<<<< HEAD:ESHCloud.Test/BulletineTest.cs
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,16 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 using ESHCloud.Bulletine;
 using ESHCloud.Bulletine.Services;
+=======
+﻿using ESHCloud.Bulletine;
+>>>>>>> 51d048e02b92a113ea692687e744fd2a95e74d2a:ESHCloud.Test/Bulletine/BulletineTest.cs
 using ESHCloud.Bulletine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace ESHCloud.Test
+namespace ESHCloud.Test.Bulletine
 {
     [TestClass]
     public class BulletineTest
     {
         private BulletineClass _service { get; set; }
-        
+
         public BulletineTest()
         {
             _service = new BulletineClass();
@@ -51,7 +58,7 @@ namespace ESHCloud.Test
             //Act
             string result = _service.Create(model);
             //Assert
-            Assert.AreNotEqual(result,null);
+            Assert.AreNotEqual(result, null);
         }
         [TestMethod]
         public void Update()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfigLibrary;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
@@ -7,41 +8,33 @@ namespace ESHCloud.Base.Repository
 {
     public class BaseRepository
     {
-        private string _LegalConnectionString;
-        private string _ESHCloudsAuthorizationConnectionString;
-        private string _LawKingConnectionString;
-        private string _ESHCloudsCoreConnectionString;
+        private string _LegalConn;
+        private string _LegalAuthConn;
+        private string _ESHCloudCoreConn;
 
-        public string LegalConnectionString
+        public string LegalConn
         {
-            get { return _LegalConnectionString; }
-            set { _LegalConnectionString = value; }
+            get { return _LegalConn; }
+            set { _LegalConn = value; }
         }
 
-
-        public string ESHCloudsAuthorizationConnectionString
+        public string LegalAuthConn
         {
-            get { return _ESHCloudsAuthorizationConnectionString; }
-            set { _ESHCloudsAuthorizationConnectionString = value; }
+            get { return _LegalAuthConn; }
+            set { _LegalAuthConn = value; }
         }
 
-        public string LawKingConnectionString
+        public string ESHCloudCoreConn
         {
-            get { return _LawKingConnectionString; }
-            set { _LawKingConnectionString = value; }
-        }
-
-        public string ESHCloudsCoreConnectionString
-        {
-            set { _ESHCloudsCoreConnectionString = value; }
-            get { return _ESHCloudsCoreConnectionString; }
+            set { _ESHCloudCoreConn = value; }
+            get { return _ESHCloudCoreConn; }
         }
 
         public BaseRepository()
         {
-            this.LegalConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsCore;
-            this.ESHCloudsAuthorizationConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsAuth;
-            this._ESHCloudsCoreConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsCore;
+            this.LegalConn = WsDbConnectionFactory.LegalConn;
+            this.LegalAuthConn = WsDbConnectionFactory.LegalAuthConn;
+            this.ESHCloudCoreConn = WsDbConnectionFactory.ESHCloudCoreConn;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfigLibrary;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -9,33 +10,26 @@ namespace Legal.Repository
 {
     public class BaseRepository
     {
-        private string _LegalConnectionString;
-        private string _ESHCloudsAuthorizationConnectionString;
-        private string _LawKingConnectionString;
+        private string _LegalConn;
+        private string _ESHCloudAuthConn;
 
-        public string LegalConnectionString
+        public string LegalConn
         {
-            get { return _LegalConnectionString; }
-            set { _LegalConnectionString = value; }
+            get { return _LegalConn; }
+            set { _LegalConn = value; }
         }
 
 
-        public string ESHCloudsAuthorizationConnectionString
+        public string ESHCloudAuthConn
         {
-            get { return _ESHCloudsAuthorizationConnectionString; }
-            set { _ESHCloudsAuthorizationConnectionString = value; }
-        }
-
-        public string LawKingConnectionString
-        {
-            get { return _LawKingConnectionString; }
-            set { _LawKingConnectionString = value; }
+            get { return _ESHCloudAuthConn; }
+            set { _ESHCloudAuthConn = value; }
         }
 
         public BaseRepository()
         {
-            this.LegalConnectionString = DotNetCoreConnectionStringsConfig.LegalDatabase;
-            this.ESHCloudsAuthorizationConnectionString = DotNetCoreConnectionStringsConfig.ESHCloudsAuth;
+            this.LegalConn = WsDbConnectionFactory.LegalConn;
+            this.ESHCloudAuthConn = WsDbConnectionFactory.ESHCloudAuthConn;
         }
     }
 }
