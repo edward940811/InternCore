@@ -1,19 +1,9 @@
-<<<<<<< HEAD:ESHCloud.Test/BulletineTest.cs
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ESHCloud.Bulletine;
-using ESHCloud.Bulletine.Services;
-=======
-﻿using ESHCloud.Bulletine;
->>>>>>> 51d048e02b92a113ea692687e744fd2a95e74d2a:ESHCloud.Test/Bulletine/BulletineTest.cs
 using ESHCloud.Bulletine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace ESHCloud.Test.Bulletine
@@ -49,12 +39,12 @@ namespace ESHCloud.Test.Bulletine
                 Module = "Chem",
             };
             //檔案上傳中心待定
-            byte[] bytes;
-            FileStream file = new FileStream("C:/Users/wish/Documents/script.sql", FileMode.Open, FileAccess.Read);
-            bytes = new byte[file.Length];
-            file.Read(bytes, 0, (int)file.Length);
-            model.Files.Add(bytes);
-            file.Close();
+            //byte[] bytes;
+            //FileStream file = new FileStream("C:/Users/wish/Documents/script.sql", FileMode.Open, FileAccess.Read);
+            //bytes = new byte[file.Length];
+            //file.Read(bytes, 0, (int)file.Length);
+            //model.Files.Add(bytes);
+            //file.Close();
             //Act
             string result = _service.Create(model);
             //Assert
