@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Configuration;
+using ESHCloud.Base.Enum;
+
 namespace ESHCloud.Bulletine.Services
 {
     public class BulletineService : IBulletineService
@@ -22,14 +24,14 @@ namespace ESHCloud.Bulletine.Services
             new BulletioneRepository().DeleteEvent(id);
         }
 
-        public IEnumerable<BulletineViewModel> GetAllEvent()
+        public IEnumerable<BulletineViewModel> GetAllEvent(ESHCloudModule module)
         {
-            return new BulletioneRepository().GetAllEvent();
+            return new BulletioneRepository().GetAllEvent(module);
         }
 
-        public BulletineViewModel GetEvent(int id)
+        public BulletineViewModel GetEvent(ESHCloudModule module, int id)
         {
-            return new BulletioneRepository().GetEvent(id);
+            return new BulletioneRepository().GetEvent(module, id);
         }
 
         public void UpdateEvent(BulletineViewModel model)

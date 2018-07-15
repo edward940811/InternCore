@@ -8,16 +8,16 @@ namespace ESHCloud.Bulletine.ViewModels
     {
         public int Id { get; set; }
         public string CompanyId { get; set; }
-        public string Module { get; set; }
+        public int ModuleId { get; set; }
         public string FileName { get; set; }
-        public string Name { get; set; }
+        public string EventName { get; set; }
         public string UserId { get; set; }
-        public Boolean setTop { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-        public DateTime Date { get; set; }
+        public int SetTop { get; set; }
+        public string EventType { get; set; }
+        public string EventDesc { get; set; }
+        public DateTime EventDate { get; set; }
         public Boolean Notify { get; set; }
-        public int Status { get; set; }
         public List<byte[]> Files { get; set;}
+        public int Status { get; set; }
     }
 }

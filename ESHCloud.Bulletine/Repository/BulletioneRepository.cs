@@ -8,30 +8,34 @@ using System.Text;
 using System.Data;
 using System.Linq;
 using System.Configuration;
+using ESHCloud.Base.Enum;
 
 namespace ESHCloud.Bulletine.Repository
 {
     public class BulletioneRepository : BaseRepository, IBulletioneRepository
     {
-        public IEnumerable<BulletineViewModel> GetAllEvent()
+        public IEnumerable<BulletineViewModel> GetAllEvent(ESHCloudModule module)
         {
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
                 List<BulletineViewModel> Bulletines = new List<BulletineViewModel>();
                 var sql = $@"Select * From [esh_core].[dbo].[Bulletine]
-                                WHERE Status = 1
+                                WHERE Status = 1 AND ModuleId = @ModuleId
                                 ORDER BY setTop DESC, Id ASC;";
-                var dynamicParams = new DynamicParameters();
-                Bulletines = con.Query<BulletineViewModel>(sql, dynamicParams).ToList();
+                Bulletines = con.Query<BulletineViewModel>(sql, new { @ModuleId = (int)module }).ToList();
                 return Bulletines;
             }
         }
-        public BulletineViewModel GetEvent(int id)
+
+        public BulletineViewModel GetEvent(ESHCloudModule module, int id)
         {
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
+                var sql = $@"Select * From [esh_core].[dbo].[Bulletine]
+                                WHERE Status = 1 AND Id = @Id AND ModuleId = @ModuleId
+                                ORDER BY setTop DESC, Id ASC;";
+                return con.Query<BulletineViewModel>(sql, new { @Id = id, @ModuleId = (int)module }).FirstOrDefault();
             }
-            return new BulletineViewModel();
         }
 
         public void CreateEvent(BulletineViewModel model)
@@ -40,34 +44,23 @@ namespace ESHCloud.Bulletine.Repository
             {
                 var sql = $@"INSERT INTO [dbo].[Bulletine]           
                                 ([CompanyId]
-                                ,[Name]
-                                ,[Description]
+                                ,[EventName]
+                                ,[EventDesc]
                                 ,[FileName]
-                                ,[setTop]
-                                ,[Type]
-                                ,[Date]
-                                ,[Module])
+                                ,[SetTop]
+                                ,[EventType]
+                                ,[EventDate]
+                                ,[ModuleId])
                             VALUES
                                 (@CompanyId,
-                                @Name,
-                                @Description,
+                                @EventName,
+                                @EventDesc,
                                 @FileName,
-                                @setTop,
-                                @Type,
-                                @Date,
-                                @Module)";
-                con.Execute(sql, new {
-                    CompanyId = model.CompanyId,
-                    Name = model.Name,
-                    Description = model.Description,
-                    Type = model.Type,
-                    setTop = model.setTop,
-                    Module = model.Module,
-                    FileName = model.FileName,
-                    Notify = false,
-                    Date = model.Date,
-                    Status = 1
-                });
+                                @SetTop,
+                                @EventType,
+                                @EventDate,
+                                @ModuleId)";
+                con.Execute(sql, model);
             }
         }
 
@@ -76,30 +69,18 @@ namespace ESHCloud.Bulletine.Repository
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
                 var sql = $@"UPDATE [dbo].[Bulletine]
-                            SET 
+                             SET 
                                 [CompanyId] = @CompanyId
-                                ,[Name] = @Name
-                                ,[Description] = @Description
+                                ,[EventName] = @EventName
+                                ,[EventDesc] = @EventDesc
                                 ,[FileName] = @FileName
-                                ,[setTop] = @setTop
-                                ,[Type] = @Type
-                                ,[Date] = @Date
-                                ,[Module] = @Module
+                                ,[SetTop] = @SetTop
+                                ,[EventType] = @EventType
+                                ,[EventDate] = @EventDate
+                                ,[ModuleId] = @ModuleId
                                 ,[Notify] = @Notify
                             WHERE Id = @Id";
-                con.Execute(sql, new
-                {
-                    Id = model.Id,
-                    CompanyId = model.CompanyId,
-                    Name = model.Name,
-                    Description = model.Description,
-                    Type = model.Type,
-                    setTop = model.setTop,
-                    Module = model.Module,
-                    FileName = model.FileName,
-                    Date = model.Date,
-                    Notify = model.Notify
-                });
+                con.Execute(sql, model);
             }
         }
 
@@ -108,13 +89,12 @@ namespace ESHCloud.Bulletine.Repository
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
                 var sql = $@"UPDATE [dbo].[Bulletine]
-                            SET
-                                [Status] = @Status
+                            SET [Status] = @Status
                             WHERE Id = @Id";
                 con.Execute(sql, new
                 {
                     Id = id,
-                    Status = 0 
+                    Status = 0
                 });
             }
         }

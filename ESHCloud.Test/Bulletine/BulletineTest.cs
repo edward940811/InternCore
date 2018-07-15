@@ -1,3 +1,4 @@
+﻿using ESHCloud.Base.Enum;
 using ESHCloud.Bulletine;
 using ESHCloud.Bulletine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -22,21 +23,29 @@ namespace ESHCloud.Test.Bulletine
         public void GetAll()
         {
             IEnumerable<BulletineViewModel> List;
-            List = _service.GetAll();
+            List = _service.GetAll(ESHCloudModule.Legal);
             Assert.AreNotEqual(List, null);
         }
+
+        [TestMethod]
+        public void GetById()
+        {
+            var model = _service.GetById(ESHCloudModule.Legal,1);
+            Assert.AreNotEqual(model, null);
+        }
+
         [TestMethod]
         public void Create()
         {
             //Arrange         
             BulletineViewModel model = new BulletineViewModel
             {
-                CompanyId = "jimmy3",
-                Description = "jimmy gone",
-                setTop = true,
-                Type = "type1",
-                Date = DateTime.Now,
-                Module = "Chem",
+                CompanyId = "FromTest",
+                EventDesc = "FromTest",
+                SetTop = 1,
+                EventType = "FromTest",
+                EventDate = DateTime.Now,
+                ModuleId = (int)ESHCloudModule.Legal,
             };
             //檔案上傳中心待定
             //byte[] bytes;
@@ -50,6 +59,7 @@ namespace ESHCloud.Test.Bulletine
             //Assert
             Assert.AreNotEqual(result, null);
         }
+
         [TestMethod]
         public void Update()
         {
@@ -57,20 +67,19 @@ namespace ESHCloud.Test.Bulletine
             BulletineViewModel model = new BulletineViewModel
             {
                 Id = 3,
-                CompanyId = "jaja",
-                Description = "sfffay",
-                setTop = true,
-                Type = "type1",
-                Date = DateTime.Now,
-                Module = "Chem",
+                CompanyId = "FromTest",
+                EventDesc = "FromTest",
+                SetTop = 1,
+                EventType = "FromTest",
+                EventDate = DateTime.Now,
+                ModuleId = (int)ESHCloudModule.Legal,
             };
             //Act
             string result = _service.Update(model);
             //Assert
             Assert.AreNotEqual(result, null);
-
-
         }
+
         [TestMethod]
         public void Delete()
         {
