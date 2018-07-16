@@ -27,4 +27,19 @@ namespace ConfigLibrary
         public static string ESHCloudCoreConn { get; set; }
 
     }
+    public static class KeyConnectionFactory
+    {
+        static KeyConnectionFactory()
+        {
+            var config = new ConfigurationBuilder()
+               .AddJsonFile("appsettings.json")
+               .Build();
+
+             visionAPI = config["ConnectionStrings:VisionAPI"];
+             sessionID = config["Headers:SessionID"];
+        }
+        public static string sessionID { get; set; }
+        public static string visionAPI { get; set; }
+
+    }
 }
