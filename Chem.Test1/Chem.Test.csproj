@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Chem.ChemInfoCrawl\Chem.ChemInfoCrawler.csproj" />
+    <ProjectReference Include="..\Chem.ChemInfoCrawler\Chem.ChemInfoCrawler.csproj" />
   </ItemGroup>
 
   <ItemGroup>

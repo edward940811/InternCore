@@ -8,27 +8,28 @@ using System.Web;
 using System.Drawing.Imaging;
 using Newtonsoft.Json.Linq;
 using System.Collections.Specialized;
+using ConfigLibrary;
+using Microsoft.Extensions.Configuration;
+using Chem.ChemInfoCrawler.Model;
 
 namespace Chem.ChemInfoCrawler
 {
+    //Fail 的情況檢查辦法
+    //1. KeyConnectionFactory 中 SessionID 是否過期
+    //2. Google Cloud Vision API是否還在運作(付費了嗎?)
+
     public class ChemCrawler
     {
-        public class ChemInfo
-        {
-            public ChemInfo() { }
-            public string SearchField { get; set; }
-            public string Results { get; set; }
-            public string Information { get; set; }
-            public string Notes { get; set; }
-        }
+        string sessionID = KeyConnectionFactory.Get("SessionID");
+        string viosionAPI = KeyConnectionFactory.Get("VisionAPI");
 
         //解圖片驗證碼
-        public static string GetCAPTCHA(Bitmap bmp)
+        public string GetCAPTCHA(Bitmap bmp)
         {
             //Google Vision API 在local端傳圖片必須轉base64 encoding         
             string base64;
             string Code = "";
-            string visionapi = "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyArH7hDUdIjttuYgszTReuGzsath5JCCnI";
+       
 
             using (MemoryStream ms = new MemoryStream())
             {
@@ -38,7 +39,7 @@ namespace Chem.ChemInfoCrawler
             }
 
             //request Google Vision API
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(visionapi);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(viosionAPI);
             request.Method = "POST";
             request.ContentType = "application/json";
 
@@ -74,12 +75,12 @@ namespace Chem.ChemInfoCrawler
         }
 
         //讀取化學物網頁
-        static ChemInfo GetChemInfo(string urls, string keyword)
+        public ChemInfo GetChemInfo(string keyword)
         {
             //傳送GET給驗證碼 此session就是用這個驗證碼圖片
             HttpWebRequest ImgRequest = (HttpWebRequest)WebRequest.Create("https://csnn.osha.gov.tw/common/CheckCode.aspx");
             ImgRequest.Method = "GET";
-            ImgRequest.Headers.Add("Cookie", "ASP.NET_SessionId=hhsm2iuybdcoq2g5zm35ndhn; ASP.NET_SessionID=");
+            ImgRequest.Headers.Add("Cookie", sessionID);
             ImgRequest.KeepAlive = true;
             ImgRequest.Host = "csnn.osha.gov.tw";
             ImgRequest.Referer = "https://csnn.osha.gov.tw/content/home/Substance_Query_Q.aspx";
@@ -91,7 +92,7 @@ namespace Chem.ChemInfoCrawler
             //綁定sessionID 傳送GET給搜尋網頁
             HttpWebRequest InitRequest = (HttpWebRequest)WebRequest.Create("https://csnn.osha.gov.tw/content/home/Substance_Query_Q.aspx");
             HtmlDocument initdoc = new HtmlDocument();
-            InitRequest.Headers.Add("Cookie", "ASP.NET_SessionId = hhsm2iuybdcoq2g5zm35ndhn; ASP.NET_SessionID =");
+            InitRequest.Headers.Add("Cookie", sessionID);
             HttpWebResponse InitResponse = (HttpWebResponse)InitRequest.GetResponse();
             var initstream = InitResponse.GetResponseStream();
             initdoc.Load(initstream);
@@ -103,7 +104,7 @@ namespace Chem.ChemInfoCrawler
             //POST請求
             HttpWebRequest request = (HttpWebRequest)WebRequest.CreateHttp("https://csnn.osha.gov.tw/content/home/Substance_Query_Q.aspx");
             request.Method = "POST";
-            request.Headers.Add("Cookie", "ASP.NET_SessionId=hhsm2iuybdcoq2g5zm35ndhn; ASP.NET_SessionID=");
+            request.Headers.Add("Cookie", sessionID);
             request.ContentType = "application/x-www-form-urlencoded";
             request.Host = "csnn.osha.gov.tw";
             request.Referer = "https://csnn.osha.gov.tw/content/home/Substance_Query_Q.aspx";
@@ -134,7 +135,7 @@ namespace Chem.ChemInfoCrawler
             //GET 結果 Headers已簡化至最低需求 勿刪減
             HttpWebRequest SubmitRequest = (HttpWebRequest)WebRequest.Create("https://csnn.osha.gov.tw/content/home/Substance_Result.aspx?r=1");
             SubmitRequest.Method = "GET";
-            SubmitRequest.Headers.Add("Cookie", "ASP.NET_SessionId=hhsm2iuybdcoq2g5zm35ndhn; ASP.NET_SessionID=");
+            SubmitRequest.Headers.Add("Cookie", sessionID);
             SubmitRequest.Referer = "https://csnn.osha.gov.tw/content/home/Substance_Query_Q.aspx";
             HttpWebResponse chemresponse = (HttpWebResponse)SubmitRequest.GetResponse();
             var responseStream = chemresponse.GetResponseStream();
