@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Wishing-Soft</Authors>
+    <Product>Wishing-Soft</Product>
+    <Description>環安雲的設定檔</Description>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>1.1.0
+增加 KeyConnectionFactory Helper，用來appsetting.json的資料</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

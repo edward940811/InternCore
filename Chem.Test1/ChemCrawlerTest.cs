@@ -16,13 +16,14 @@ namespace Chem.ChemInfoCrawlerTest
         {
             _service = new ChemCrawler();
         }
+
         [TestMethod]
-        public void 有正確查詢到()
+        [DataRow("氬")]
+        [DataRow("丙酮")]
+        public void 有正確查詢到(string keyword)
         {
-            //Arrange
-            string keyword = "氬";
             //Act
-            ChemInfo result = _service.GetChemInfo("https://csnn.osha.gov.tw/content/home/Substance_Query_Q.aspx", keyword);
+            ChemInfo result = _service.GetChemInfo(keyword);
             //Assert
             Assert.AreEqual(result.SearchField.Contains(keyword), true);
         }

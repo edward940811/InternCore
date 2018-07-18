@@ -20,8 +20,8 @@ namespace Chem.ChemInfoCrawler
 
     public class ChemCrawler
     {
-        string sessionID = KeyConnectionFactory.sessionID;
-        string viosionAPI = KeyConnectionFactory.visionAPI;
+        string sessionID = KeyConnectionFactory.Get("SessionID");
+        string viosionAPI = KeyConnectionFactory.Get("VisionAPI");
 
         //解圖片驗證碼
         public string GetCAPTCHA(Bitmap bmp)
@@ -75,7 +75,7 @@ namespace Chem.ChemInfoCrawler
         }
 
         //讀取化學物網頁
-        public ChemInfo GetChemInfo(string urls, string keyword)
+        public ChemInfo GetChemInfo(string keyword)
         {
             //傳送GET給驗證碼 此session就是用這個驗證碼圖片
             HttpWebRequest ImgRequest = (HttpWebRequest)WebRequest.Create("https://csnn.osha.gov.tw/common/CheckCode.aspx");
