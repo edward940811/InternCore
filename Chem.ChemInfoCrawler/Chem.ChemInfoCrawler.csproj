@@ -10,6 +10,8 @@
     <NeutralLanguage></NeutralLanguage>
     <PackageReleaseNotes>1.0.0
 核心功能</PackageReleaseNotes>
+    <Authors>Edward Yang</Authors>
+    <Company>Wishing-Soft</Company>
   </PropertyGroup>
 
   <ItemGroup>
