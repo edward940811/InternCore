@@ -14,6 +14,10 @@ using Chem.ChemInfoCrawler.Model;
 
 namespace Chem.ChemInfoCrawler
 {
+    //Fail 的情況檢查辦法
+    //1. KeyConnectionFactory 中 SessionID 是否過期
+    //2. Google Cloud Vision API是否還在運作(付費了嗎?)
+
     public class ChemCrawler
     {
         string sessionID = KeyConnectionFactory.sessionID;
