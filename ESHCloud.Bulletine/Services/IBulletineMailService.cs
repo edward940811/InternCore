@@ -4,6 +4,6 @@ namespace ESHCloud.Bulletine.Services
 {
     public interface IBulletineMailService
     {
-        void Save(BulletineMailViewModel model);
+        void Save(BulletineViewModel bulletinemodel);
     }
 }

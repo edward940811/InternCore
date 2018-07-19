@@ -1,27 +1,65 @@
-﻿using ESHCloud.Base.Repository;
+﻿using Dapper;
+using ESHCloud.Base.Repository;
 using ESHCloud.Bulletine.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 
 namespace ESHCloud.Bulletine.Services
 {
     public class BulletineMailService : BaseRepository, IBulletineMailService
     {
-        public void Save(BulletineMailViewModel model)
+        public BulletineMailService() { }
+        public BulletineMailViewModel GetById(int id)
         {
-            // 是否要設定信件通知
-
-            // 如果是: 更新 Bulletine 的NotifyType(發送類型)、NofityDatetime、NotifyValue
-            // TODO:驗證的NotifyType、NofityDatetime、NotifyValue
-
-            // 更新 BulletineMail
-            // Todo:驗證逗號分隔的 Mail 格式
-
-
-            // 如果否: update Bulletine NotifyMail 為 false'
-
-            throw new NotImplementedException();
+            BulletineMailViewModel model = new BulletineMailViewModel();
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
+            {
+                //找是否有設立過
+                int bulletineID = id;
+                var getsql = $@"SELECT * FROM [dbo].[BulletineMail]
+                             WHERE BulletineId = {bulletineID}";
+                model = con.Query<BulletineMailViewModel>(getsql).FirstOrDefault();
+            }
+            return model;
+        }
+        public void Save(BulletineViewModel bulletinemodel)
+        { 
+            //設定提醒信件
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
+            {                  
+                //找是否有設立過
+                int bulletineID = bulletinemodel.Id;
+                var model = GetById(bulletineID);
+                //有的話更新
+                if (model != null)
+                {
+                    var sql = $@"UPDATE [dbo].[BulletineMail]
+                                SET 
+                                    [MailTo] = @MailTo
+                                    ,[Subject] = @Subject
+                                    ,[MailBody] = @MailBody
+                             WHERE Id = @Id";
+                    con.Execute(sql, bulletinemodel.Mail);
+                }
+                //沒有的話建立 
+                else
+                {
+                    var sql = $@"INSERT INTO [dbo].[BulletineMail]
+                                   ([BulletineId]
+                                   ,[MailTo]
+                                   ,[Subject]
+                                   ,[MailBody])
+                             VALUES
+                                   ({bulletineID},
+                                    @MailTo,
+                                    @Subject,
+                                    @MailBody)";
+                    con.Execute(sql, bulletinemodel.Mail);
+                }
+            }
         }
     }
 }

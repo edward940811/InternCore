@@ -6,6 +6,7 @@ namespace ESHCloud.Bulletine.ViewModels
 {
     public class BulletineMailViewModel
     {
+        public BulletineMailViewModel() {}
         public int Id { get; set; }
 
         // 是否要設定郵件通知
@@ -40,5 +41,9 @@ namespace ESHCloud.Bulletine.ViewModels
         /// 郵件內容
         /// </summary>
         public string MailBody { get; set; }
+        /// <summary>
+        /// 布告欄ID
+        /// </summary>
+        public int BulletineId { get; set; }
     }
 }

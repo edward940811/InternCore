@@ -39,14 +39,14 @@ namespace ESHCloud.Bulletine.Services
             {
                 var sql = $@"Select * From [esh_core].[dbo].[Bulletine]
                                 WHERE Status = 1 AND Id = @Id AND ModuleId = @ModuleId
-                                ORDER BY setTop DESC, Id ASC;";
+                                ORDER BY SetTop DESC, Id ASC;";
 
                 // TDOO:取得mail提醒的資訊
                 var model = con.Query<BulletineViewModel>(sql, new { @Id = id, @ModuleId = (int)module }).FirstOrDefault();
-                if(model != null)
-                {
-                    model.Mail = null;
-                }
+                //if(model != null)
+                //{
+                //    model.Mail = null;
+                //}
                 return model;
             }
         }
@@ -89,10 +89,18 @@ namespace ESHCloud.Bulletine.Services
                                 ,[EventType] = @EventType
                                 ,[EventDate] = @EventDate
                                 ,[ModuleId] = @ModuleId
-                                ,[NotifyType] = @NotifyType
                                 ,[NotifyMail] = @NotifyMail
+                                ,[NotifyType] = @NotifyType                            
+                                ,[NofityDatetime] = @NofityDatetime
+                                ,[NotifyValue] = @NotifyValue
                             WHERE Id = @Id";
                 con.Execute(sql, model);
+            }
+            //呼叫信件儲存
+            if (!model.NotifyMail)
+            {
+                BulletineMailService _service = new BulletineMailService();
+                _service.Save(model);
             }
         }
         public void DeleteEvent(int id)
