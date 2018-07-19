@@ -1,4 +1,4 @@
-﻿using ESHCloud.Base.Enum;
+﻿using WS.Models.Enum;
 using ESHCloud.Bulletine;
 using ESHCloud.Bulletine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

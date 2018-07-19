@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Configuration;
-using ESHCloud.Base.Enum;
+using WS.Models.Enum;
 
 namespace ESHCloud.Bulletine.Services
 {

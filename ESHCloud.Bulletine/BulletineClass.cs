@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ESHCloud.Bulletine.ViewModels;
 using ESHCloud.Bulletine.Services;
-using ESHCloud.Base.Enum;
+using WS.Models.Enum;
 
 namespace ESHCloud.Bulletine
 {

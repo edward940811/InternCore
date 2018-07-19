@@ -8,7 +8,7 @@ using System.Text;
 using System.Data;
 using System.Linq;
 using System.Configuration;
-using ESHCloud.Base.Enum;
+using WS.Models.Enum;
 
 namespace ESHCloud.Bulletine.Repository
 {

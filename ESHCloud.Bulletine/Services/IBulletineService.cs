@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ESHCloud.Base.Enum;
+using WS.Models.Enum;
 using ESHCloud.Bulletine.ViewModels;
 
 namespace ESHCloud.Bulletine.Services

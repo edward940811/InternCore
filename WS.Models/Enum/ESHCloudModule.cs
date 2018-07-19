@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ESHCloud.Base.Enum
+namespace WS.Models.Enum
 {
     public enum ESHCloudModule
     {

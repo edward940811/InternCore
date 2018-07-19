@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ESHCloud.Base.Enum;
+using WS.Models.Enum;
 using ESHCloud.Bulletine.ViewModels;
 
 namespace ESHCloud.Bulletine.Repository
