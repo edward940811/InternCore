@@ -9,10 +9,13 @@ namespace ESHCloud.Bulletine
 {
     public class BulletineClass
     {
-        private BulletineService _service { get;set;}
+        private BulletineService bulletineService { get;set;}
+
+        private BulletineMailService bulletineMailService { get; set; }
         public BulletineClass()
         {
-            _service = new BulletineService();
+            bulletineService = new BulletineService();
+            bulletineMailService = new BulletineMailService();
         }
 
         /// <summary>
@@ -22,7 +25,7 @@ namespace ESHCloud.Bulletine
         /// <returns></returns>
         public IEnumerable<BulletineViewModel> GetAll(ESHCloudModule moduleId)
         {
-            return _service.GetAllEvent(moduleId);
+            return bulletineService.GetAllEvent(moduleId);
         }
 
         /// <summary>
@@ -33,7 +36,7 @@ namespace ESHCloud.Bulletine
         /// <returns></returns>
         public BulletineViewModel GetById(ESHCloudModule moduleId,int id)
         {
-            return _service.GetEvent(moduleId, id);
+            return bulletineService.GetEvent(moduleId, id);
         }
 
         /// <summary>
@@ -42,7 +45,7 @@ namespace ESHCloud.Bulletine
         /// <returns></returns>
         public string Create(BulletineViewModel model)
         {   
-            _service.CreateEvent(model);
+            bulletineService.CreateEvent(model);
             return "success";
         }
 
@@ -53,7 +56,7 @@ namespace ESHCloud.Bulletine
         /// <returns></returns>
         public string Update(BulletineViewModel model)
         {
-            _service.UpdateEvent(model);
+            bulletineService.UpdateEvent(model);
             return "success";
         }
 
@@ -64,8 +67,17 @@ namespace ESHCloud.Bulletine
         /// <returns></returns>
         public string Delete(int id)
         {
-            _service.DeleteEvent(id);
+            bulletineService.DeleteEvent(id);
             return "success";
+        }
+
+        /// <summary>
+        /// 儲存郵件通知
+        /// </summary>
+        /// <returns></returns>
+        public void SaveBulltineMail(BulletineMailViewModel model)
+        {
+            bulletineMailService.Save(model);
         }
     }
 }
