@@ -2,7 +2,6 @@
 using ESHCloud.Bulletine.Services;
 using ESHCloud.Bulletine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WS.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,22 +22,38 @@ namespace ESHCloud.Test.Bulletine
         }
 
         [TestMethod]
-        public void Save()
+        public void Save_Update()
         {
             //Arrange
-            BulletineViewModel testmodel = new BulletineViewModel();
-            testmodel.Id = 5;
-            testmodel.Mail = new BulletineMailViewModel();
-            testmodel.Mail.Id = 3;
-            testmodel.Mail.BulletineId = 5;
-            testmodel.Mail.MailBody = "i am mailbody";
-            testmodel.Mail.MailTo = "edward@wishingsoft.com";
-            testmodel.Mail.Subject = "testsubject2";
+            BulletineMailViewModel model = new BulletineMailViewModel();
+            model = new BulletineMailViewModel();
+            model.Id = 3;
+            model.BulletineId = 5;
+            model.MailBody = "i am mailbody";
+            model.MailTo = "edward@wishingsoft.com";
+            model.Subject = "testsubject2";
             //Act
-            _service.SaveBulltineMail(testmodel);
+            _service.SaveBulltineMail(model);
             //Assert
-            BulletineMailViewModel comparemodel = _mailservice.GetById(testmodel.Mail.BulletineId);
-            Assert.AreEqual(comparemodel.MailBody,testmodel.Mail.MailBody);
+            BulletineMailViewModel comparemodel = _mailservice.GetById(model.BulletineId);
+            Assert.AreEqual(comparemodel.MailBody,model.MailBody);
+        }
+
+        [TestMethod]
+        public void Save_Add()
+        {
+            //Arrange
+            var model = new BulletineMailViewModel();
+            model.Id = 0;
+            model.BulletineId = 5;
+            model.MailBody = "i am mailbody";
+            model.MailTo = "edward@wishingsoft.com";
+            model.Subject = "testsubject2";
+            //Act
+            _service.SaveBulltineMail(model);
+            //Assert
+            BulletineMailViewModel comparemodel = _mailservice.GetById(model.BulletineId);
+            Assert.AreEqual(comparemodel.MailBody, model.MailBody);
         }
     }
 }

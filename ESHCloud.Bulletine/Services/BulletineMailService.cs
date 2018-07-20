@@ -24,16 +24,13 @@ namespace ESHCloud.Bulletine.Services
             }
             return model;
         }
-        public void Save(BulletineViewModel bulletinemodel)
+        public void Save(BulletineMailViewModel model)
         {
             //設定提醒信件
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
-                // 找是否有設立過
-                var model = GetById(bulletinemodel.Id);
-
                 // 有的話更新
-                if (model != null)
+                if (model.Id != 0)
                 {
                     var sql = $@"UPDATE [dbo].[BulletineMail]
                                 SET 
@@ -41,7 +38,7 @@ namespace ESHCloud.Bulletine.Services
                                     ,[Subject] = @Subject
                                     ,[MailBody] = @MailBody
                              WHERE Id = @Id";
-                    con.Execute(sql, bulletinemodel.Mail);
+                    con.Execute(sql, model);
                 }
                 else
                 {
@@ -55,7 +52,7 @@ namespace ESHCloud.Bulletine.Services
                                     @MailTo,
                                     @Subject,
                                     @MailBody)";
-                    con.Execute(sql, new { @BulletineId = bulletinemodel.Id, bulletinemodel.Mail });
+                    con.Execute(sql, model);
                 }
             }
         }

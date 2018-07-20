@@ -1,11 +1,11 @@
-﻿using WS.Models.Enum;
-using ESHCloud.Bulletine;
+﻿using ESHCloud.Bulletine;
 using ESHCloud.Bulletine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using ESHCloud.Base.Enum;
 
 namespace ESHCloud.Test.Bulletine
 {

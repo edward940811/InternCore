@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ESHCloud.Bulletine.ViewModels;
 using ESHCloud.Bulletine.Services;
-using WS.Models.Enum;
+using ESHCloud.Base.Enum;
 
 namespace ESHCloud.Bulletine
 {
@@ -75,7 +75,7 @@ namespace ESHCloud.Bulletine
         /// 儲存郵件通知
         /// </summary>
         /// <returns></returns>
-        public void SaveBulltineMail(BulletineViewModel model)
+        public void SaveBulltineMail(BulletineMailViewModel model)
         {
             bulletineMailService.Save(model);
         }

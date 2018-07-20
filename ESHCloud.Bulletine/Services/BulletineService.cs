@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Configuration;
-using WS.Models.Enum;
 using ESHCloud.Base.Repository;
 using System.Data.SqlClient;
 using Dapper;
 using System.Linq;
+using ESHCloud.Base.Enum;
 
 namespace ESHCloud.Bulletine.Services
 {
