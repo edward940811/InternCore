@@ -2,7 +2,6 @@
 using ESHCloud.Bulletine.Services;
 using ESHCloud.Bulletine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WS.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.Text;

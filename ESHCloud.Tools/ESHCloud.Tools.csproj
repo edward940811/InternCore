@@ -3,10 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Description>Yeahhhhh baby</Description>
+    <Description>環安衛小工具網的核心計算邏輯</Description>
     <AssemblyVersion>1.0.8.0</AssemblyVersion>
     <FileVersion>1.0.8.0</FileVersion>
-    <Version>1.0.8</Version>
+    <Version>1.0.9</Version>
+    <Authors>Edward Yang</Authors>
+    <Company>Wising-Soft</Company>
+    <PackageReleaseNotes>- 增加說明</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
