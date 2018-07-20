@@ -96,12 +96,7 @@ namespace ESHCloud.Bulletine.Services
                             WHERE Id = @Id";
                 con.Execute(sql, model);
             }
-            //呼叫信件儲存
-            if (!model.NotifyMail)
-            {
-                BulletineMailService _service = new BulletineMailService();
-                _service.Save(model);
-            }
+            
         }
         public void DeleteEvent(int id)
         {

@@ -72,6 +72,11 @@ namespace ESHCloud.Test.Bulletine
                 SetTop = 1,
                 EventType = "FromTest",
                 EventDate = DateTime.Now,
+                NotifyMail = false,
+                NotifyEvent = false,
+                NotifyType = 1,
+                NofityDatetime = DateTime.Today,
+                NotifyValue = 6,
                 ModuleId = (int)ESHCloudModule.Legal,
             };
             //Act

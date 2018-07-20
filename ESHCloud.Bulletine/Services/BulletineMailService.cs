@@ -12,28 +12,27 @@ namespace ESHCloud.Bulletine.Services
     public class BulletineMailService : BaseRepository, IBulletineMailService
     {
         public BulletineMailService() { }
-        public BulletineMailViewModel GetById(int id)
+        public BulletineMailViewModel GetById(int bulletineID)
         {
             BulletineMailViewModel model = new BulletineMailViewModel();
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
-                //找是否有設立過
-                int bulletineID = id;
                 var getsql = $@"SELECT * FROM [dbo].[BulletineMail]
-                             WHERE BulletineId = {bulletineID}";
-                model = con.Query<BulletineMailViewModel>(getsql).FirstOrDefault();
+                             WHERE BulletineId = @BulletineId";
+                model = con.Query<BulletineMailViewModel>(getsql, new { @BulletineId = bulletineID })
+                    .FirstOrDefault();
             }
             return model;
         }
         public void Save(BulletineViewModel bulletinemodel)
-        { 
+        {
             //設定提醒信件
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
-            {                  
-                //找是否有設立過
-                int bulletineID = bulletinemodel.Id;
-                var model = GetById(bulletineID);
-                //有的話更新
+            {
+                // 找是否有設立過
+                var model = GetById(bulletinemodel.Id);
+
+                // 有的話更新
                 if (model != null)
                 {
                     var sql = $@"UPDATE [dbo].[BulletineMail]
@@ -44,7 +43,6 @@ namespace ESHCloud.Bulletine.Services
                              WHERE Id = @Id";
                     con.Execute(sql, bulletinemodel.Mail);
                 }
-                //沒有的話建立 
                 else
                 {
                     var sql = $@"INSERT INTO [dbo].[BulletineMail]
@@ -53,11 +51,11 @@ namespace ESHCloud.Bulletine.Services
                                    ,[Subject]
                                    ,[MailBody])
                              VALUES
-                                   ({bulletineID},
+                                   (@BulletineId,
                                     @MailTo,
                                     @Subject,
                                     @MailBody)";
-                    con.Execute(sql, bulletinemodel.Mail);
+                    con.Execute(sql, new { @BulletineId = bulletinemodel.Id, bulletinemodel.Mail });
                 }
             }
         }

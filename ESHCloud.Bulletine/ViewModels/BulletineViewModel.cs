@@ -16,8 +16,11 @@ namespace ESHCloud.Bulletine.ViewModels
         public string EventType { get; set; }
         public string EventDesc { get; set; }
         public DateTime EventDate { get; set; }
-        public Boolean NotifyType { get; set; }
+        public Boolean NotifyEvent { get; set; }
         public Boolean NotifyMail { get; set; }
+        public DateTime NofityDatetime { get; set; }
+        public int NotifyType { get; set; }
+        public int NotifyValue { get; set; }
         public BulletineMailViewModel Mail { get; set; }
         public List<byte[]> Files { get; set;}
         public int Status { get; set; }

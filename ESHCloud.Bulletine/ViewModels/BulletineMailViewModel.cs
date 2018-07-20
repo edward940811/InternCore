@@ -41,8 +41,9 @@ namespace ESHCloud.Bulletine.ViewModels
         /// 郵件內容
         /// </summary>
         public string MailBody { get; set; }
+
         /// <summary>
-        /// 布告欄ID
+        /// 佈告欄ID
         /// </summary>
         public int BulletineId { get; set; }
     }
