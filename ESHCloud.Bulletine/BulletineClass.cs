@@ -75,7 +75,7 @@ namespace ESHCloud.Bulletine
         /// 儲存郵件通知
         /// </summary>
         /// <returns></returns>
-        public void SaveBulltineMail(BulletineViewModel model)
+        public void SaveBulltineMail(BulletineMailViewModel model)
         {
             bulletineMailService.Save(model);
         }

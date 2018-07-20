@@ -24,7 +24,7 @@ namespace ESHCloud.Bulletine.Services
             }
             return model;
         }
-        public void Save(BulletineViewModel bulletinemodel)
+        public void Save(BulletineMailViewModel bulletinemodel)
         {
             //設定提醒信件
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
@@ -41,7 +41,7 @@ namespace ESHCloud.Bulletine.Services
                                     ,[Subject] = @Subject
                                     ,[MailBody] = @MailBody
                              WHERE Id = @Id";
-                    con.Execute(sql, bulletinemodel.Mail);
+                    con.Execute(sql, bulletinemodel);
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace ESHCloud.Bulletine.Services
                                     @MailTo,
                                     @Subject,
                                     @MailBody)";
-                    con.Execute(sql, new { @BulletineId = bulletinemodel.Id, bulletinemodel.Mail });
+                    con.Execute(sql, new { bulletinemodel });
                 }
             }
         }
