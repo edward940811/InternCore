@@ -22,11 +22,10 @@ namespace ESHCloud.Test.Bulletine
         }
 
         [TestMethod]
-        public void Save()
+        public void Save_Update()
         {
             //Arrange
             BulletineMailViewModel model = new BulletineMailViewModel();
-            model.Id = 5;
             model = new BulletineMailViewModel();
             model.Id = 3;
             model.BulletineId = 5;
@@ -38,6 +37,23 @@ namespace ESHCloud.Test.Bulletine
             //Assert
             BulletineMailViewModel comparemodel = _mailservice.GetById(model.BulletineId);
             Assert.AreEqual(comparemodel.MailBody,model.MailBody);
+        }
+
+        [TestMethod]
+        public void Save_Add()
+        {
+            //Arrange
+            var model = new BulletineMailViewModel();
+            model.Id = 0;
+            model.BulletineId = 5;
+            model.MailBody = "i am mailbody";
+            model.MailTo = "edward@wishingsoft.com";
+            model.Subject = "testsubject2";
+            //Act
+            _service.SaveBulltineMail(model);
+            //Assert
+            BulletineMailViewModel comparemodel = _mailservice.GetById(model.BulletineId);
+            Assert.AreEqual(comparemodel.MailBody, model.MailBody);
         }
     }
 }
