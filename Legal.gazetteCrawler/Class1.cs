@@ -14,8 +14,9 @@ namespace Legal.GazetteCrawler
         //爬取檔案url
         public List<Gazette> PageCrawl(string url)
         {
-
+            return null;
         }
+
         //爬取檔案資料
         public Gazette FileCrawl(string url)
         {

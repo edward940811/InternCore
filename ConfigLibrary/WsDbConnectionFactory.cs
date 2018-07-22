@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 
 namespace ConfigLibrary
@@ -8,6 +9,16 @@ namespace ConfigLibrary
     public static class WsDbConnectionFactory
     {
         static WsDbConnectionFactory()
+        {
+#if NETCOREAPP2_1
+             GetNetCoreConfig();
+#elif NET461
+            GetNetFrameworkConfig();
+#endif
+
+        }
+
+        private static void GetNetCoreConfig()
         {
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
@@ -20,11 +31,20 @@ namespace ConfigLibrary
             ESHCloudCoreConn = config["ConnectionStrings:ESHCloudCoreConn"];
         }
 
+        private static void GetNetFrameworkConfig()
+        {
+            LegalConn = ConfigurationManager.ConnectionStrings["LegalConn"].ToString();
+            LegalAuthConn = ConfigurationManager.ConnectionStrings["LegalConn"].ToString();
+            ChemConn = ConfigurationManager.ConnectionStrings["LegalConn"].ToString();
+            ESHCloudAuthConn = ConfigurationManager.ConnectionStrings["LegalConn"].ToString();
+            ESHCloudCoreConn = ConfigurationManager.ConnectionStrings["LegalConn"].ToString();
+        }
+
         public static string LegalConn { get; set; }
         public static string LegalAuthConn { get; set; }
         public static string ChemConn { get; set; }
         public static string ESHCloudAuthConn { get; set; }
         public static string ESHCloudCoreConn { get; set; }
     }
-   
+
 }
