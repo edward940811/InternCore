@@ -9,7 +9,9 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using HtmlAgilityPack;
+using Legal.GazetteCrawler.Service;
 using Legal.GazetteCrawler;
+using Dapper;
 
 namespace Legal.GazetteCrawler
 {
@@ -23,6 +25,7 @@ namespace Legal.GazetteCrawler
         /// <returns></returns>
         public List<Gazette> PageCrawl(string url)
         {
+            GazetteService _service = new GazetteService();
             List<Gazette> result = new List<Gazette>();
             WebClient client = new WebClient();
             MemoryStream initialPageMs = new MemoryStream(client.DownloadData(url));
@@ -39,10 +42,12 @@ namespace Legal.GazetteCrawler
             //呼叫爬壓縮檔的function
             foreach (string link in hrefs)
             {
-                result.Add(FileCrawl(link));
+                //result.Add(FileCrawl(link));
+                _service.Create(FileCrawl(link));
             }
             return result;
         }
+
         //爬取檔案資料
         private Gazette FileCrawl(string url)
         {

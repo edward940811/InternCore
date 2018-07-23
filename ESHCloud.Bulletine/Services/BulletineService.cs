@@ -26,10 +26,6 @@ namespace ESHCloud.Bulletine.Services
                                 WHERE Status = 1 AND ModuleId = @ModuleId
                                 ORDER BY setTop DESC, Id ASC;";
                 Bulletines = con.Query<BulletineViewModel>(sql, new { @ModuleId = (int)module }).ToList();
-
-                
-                
-
                 return Bulletines;
             }
         }
