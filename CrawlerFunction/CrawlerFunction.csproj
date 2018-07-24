@@ -6,17 +6,20 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.13" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Legal.gazetteCrawler\Legal.GazetteCrawler.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="local.settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
   </ItemGroup>
 </Project>

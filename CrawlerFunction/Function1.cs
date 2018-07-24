@@ -9,7 +9,7 @@ namespace CrawlerFunction
     {
 
         [FunctionName("Crawlerfunc")]
-        public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+        public static void Run([TimerTrigger("20 * * * * *")]TimerInfo myTimer, TraceWriter log)
         {
             log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
             Crawler service = new Crawler();

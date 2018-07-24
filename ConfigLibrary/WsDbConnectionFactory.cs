@@ -14,6 +14,8 @@ namespace ConfigLibrary
              GetNetCoreConfig();
 #elif NET461
             GetNetFrameworkConfig();
+#elif NETSTANDARD2_0
+            GetNetCoreConfig();
 #endif
 
         }
