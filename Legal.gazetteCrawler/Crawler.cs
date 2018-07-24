@@ -23,7 +23,7 @@ namespace Legal.GazetteCrawler
         ///</summary>
         /// <param name="url">輸入存放檔案的網址 https://gazette.nat.gov.tw/egFront/openData03.do </param>
         /// <returns></returns>
-        public List<Gazette> PageCrawl(string url)
+        public void PageCrawl(string url)
         {
             GazetteService _service = new GazetteService();
             List<Gazette> result = new List<Gazette>();
@@ -50,7 +50,6 @@ namespace Legal.GazetteCrawler
                 //result.Add(FileCrawl(link));
                 _service.Create(FileCrawl(link));
             }
-            return result;
         }
 
         //爬取檔案資料
