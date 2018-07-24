@@ -38,11 +38,7 @@ namespace ESHCloud.Bulletine.Services
                                 ORDER BY SetTop DESC, Id ASC;";
 
                 // TDOO:取得mail提醒的資訊
-                var model = con.Query<BulletineViewModel>(sql, new { @Id = id, @ModuleId = (int)module }).FirstOrDefault();
-                //if(model != null)
-                //{
-                //    model.Mail = null;
-                //}
+                var model = con.Query<BulletineViewModel>(sql, new { @Id = id, @ModuleId = (int)module }).FirstOrDefault();              
                 return model;
             }
         }

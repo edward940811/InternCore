@@ -3,6 +3,7 @@ using ESHCloud.Base.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 
 namespace Legal.GazetteCrawler.Service
@@ -14,11 +15,21 @@ namespace Legal.GazetteCrawler.Service
         {
 
         }
+        public List<string> GetAll()
+        {
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
+            {
+                var sql = $@"SELECT [CrawledDate]
+                             FROM [dbo].[GazetteCrawled]";
+                List<string> model = con.Query<string>(sql).ToList();
+                return model;
+            }
+        }
         public void Create(Gazette gazette)
         {
             using (var con = new SqlConnection(this.ESHCloudCoreConn))
             {
-                var sql = $@"INSERT INTO [dbo].[xml]
+                var sql = $@"INSERT INTO [dbo].[Gazette]
                                        (
                                        [metaIdField]
                                        ,[doc_Style_LNameField]
@@ -69,11 +80,21 @@ namespace Legal.GazetteCrawler.Service
                                        ,@Service
                                        ,@GazetteHTML
                                        ,@HTMLContent)";
-                //con.Execute(sql, gazette.Record[0]);
                 foreach (GazetteRecord record in gazette.Record)
                 {
                     con.Execute(sql, record);
                 }
+            }
+        }
+        public void CrawledCreate(string crawled)
+        {
+            using (var con = new SqlConnection(this.ESHCloudCoreConn))
+            {
+                var sql = $@"INSERT INTO [dbo].[GazetteCrawled]
+                               ([CrawledDate])
+                         VALUES
+                               (@CrawledDate)";
+                con.Execute(sql, new { @CrawledDate = crawled });
             }
         }
 

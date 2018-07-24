@@ -17,7 +17,7 @@ namespace Legal.GazetteCrawler
 {
     public class Crawler
     {
-
+        private List<string> CrawledRecord { get; set; }
         ///<summary>
         ///爬取檔案url
         ///</summary>
@@ -31,13 +31,18 @@ namespace Legal.GazetteCrawler
             MemoryStream initialPageMs = new MemoryStream(client.DownloadData(url));
             HtmlDocument initdoc = new HtmlDocument();
             initdoc.Load(initialPageMs, Encoding.UTF8);
+            CrawledRecord = _service.GetAll();
+
             //爬取所有連結
             HtmlNodeCollection hrefCollection = initdoc.DocumentNode.SelectNodes("/html/body/div[2]/div/div/article/div/div[2]/div/ul/li/a");
             List<string> hrefs = new List<string>();
             foreach (HtmlNode node in hrefCollection)
             {
-                //node.Attributes[0] = href
-                hrefs.Add("https://gazette.nat.gov.tw/egFront/" + HttpUtility.HtmlDecode(node.Attributes[0].Value));
+                if (!CrawledRecord.Contains(node.InnerText))
+                {
+                    hrefs.Add("https://gazette.nat.gov.tw/egFront/" + HttpUtility.HtmlDecode(node.Attributes[0].Value));
+                    _service.CrawledCreate(node.InnerText);
+                }
             }
             //呼叫爬壓縮檔的function
             foreach (string link in hrefs)
@@ -54,7 +59,6 @@ namespace Legal.GazetteCrawler
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
             var httpResponse = (HttpWebResponse)request.GetResponse();
-
             using (MemoryStream ms = new MemoryStream())
             {
                 httpResponse.GetResponseStream().CopyTo(ms);
@@ -64,6 +68,7 @@ namespace Legal.GazetteCrawler
         //解析XML
         private Gazette Decompress(MemoryStream filebyte)
         {
+            ZipArchiveEntry entry;
             ZipArchive archive = new ZipArchive(filebyte);
             Gazette DeserializeList;
             //取得xml檔案       
@@ -75,7 +80,7 @@ namespace Legal.GazetteCrawler
                     xmlindex = i;
                 }
             }
-            ZipArchiveEntry entry = archive.Entries[xmlindex];
+            entry = archive.Entries[xmlindex];
             using (XmlReader reader = XmlReader.Create(entry.Open()))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Gazette), new XmlRootAttribute("Gazette"));
