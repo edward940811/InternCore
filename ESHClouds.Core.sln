@@ -45,7 +45,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS.Models", "WS.Models\WS.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Legal.GazetteCrawler", "Legal.gazetteCrawler\Legal.GazetteCrawler.csproj", "{0DC51134-8347-4442-BFFD-6C7E5B614459}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrawlerFunction", "CrawlerFunction\CrawlerFunction.csproj", "{868A1D2C-9FA1-4E23-88F3-798829E235A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrawlerFunction", "CrawlerFunction\CrawlerFunction.csproj", "{868A1D2C-9FA1-4E23-88F3-798829E235A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legal.AzureFunction", "Legal.AzureFunction\Legal.AzureFunction.csproj", "{4411D92E-DF62-4108-A1F8-C15304AD2159}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -315,6 +317,22 @@ Global
 		{868A1D2C-9FA1-4E23-88F3-798829E235A5}.Release|x64.Build.0 = Release|Any CPU
 		{868A1D2C-9FA1-4E23-88F3-798829E235A5}.Release|x86.ActiveCfg = Release|Any CPU
 		{868A1D2C-9FA1-4E23-88F3-798829E235A5}.Release|x86.Build.0 = Release|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Debug|ARM.Build.0 = Debug|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Debug|x64.Build.0 = Debug|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Debug|x86.Build.0 = Debug|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Release|ARM.ActiveCfg = Release|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Release|ARM.Build.0 = Release|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Release|x64.ActiveCfg = Release|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Release|x64.Build.0 = Release|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Release|x86.ActiveCfg = Release|Any CPU
+		{4411D92E-DF62-4108-A1F8-C15304AD2159}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -336,6 +354,7 @@ Global
 		{9362CB82-95D7-49F0-AA21-5DD1ED6A8DD1} = {BCE66241-CDE4-42A0-B7C9-B058535BEACD}
 		{0DC51134-8347-4442-BFFD-6C7E5B614459} = {944619E8-3343-4E08-AF52-74AA6502CF26}
 		{868A1D2C-9FA1-4E23-88F3-798829E235A5} = {944619E8-3343-4E08-AF52-74AA6502CF26}
+		{4411D92E-DF62-4108-A1F8-C15304AD2159} = {944619E8-3343-4E08-AF52-74AA6502CF26}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {112B5457-6A86-42D2-8B69-CCC223CDB6B3}

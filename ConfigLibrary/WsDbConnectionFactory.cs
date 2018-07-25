@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
+using ConfigLibrary.Models;
 
 namespace ConfigLibrary
 {
@@ -15,9 +16,8 @@ namespace ConfigLibrary
 #elif NET461
             GetNetFrameworkConfig();
 #elif NETSTANDARD2_0
-            GetNetCoreConfig();
+            GetStandardConfig();
 #endif
-
         }
 
         private static void GetNetCoreConfig()
@@ -40,6 +40,19 @@ namespace ConfigLibrary
             ChemConn = ConfigurationManager.ConnectionStrings["LegalConn"].ToString();
             ESHCloudAuthConn = ConfigurationManager.ConnectionStrings["LegalConn"].ToString();
             ESHCloudCoreConn = ConfigurationManager.ConnectionStrings["LegalConn"].ToString();
+        }
+
+        private static void GetStandardConfig()
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("local.settings.json")
+                .Build();
+
+            LegalConn = config["ConnectionStrings:LegalConn"];
+            LegalAuthConn = config["ConnectionStrings:LegalAuthConn"];
+            ChemConn = config["ConnectionStrings:ChemConn"];
+            ESHCloudAuthConn = config["ConnectionStrings:ESHCloudAuthConn"];
+            ESHCloudCoreConn = config["ConnectionStrings:ESHCloudCoreConn"];
         }
 
         public static string LegalConn { get; set; }
